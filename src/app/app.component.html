@@ -1,0 +1,70 @@
+<mat-drawer-container class="container">
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <div class="close">
+      <button mat-mini-fab color="primary" (click)="drawer.toggle()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <form [formGroup]="formGroup">
+      <div class="rover">
+        <h3 class="title">Mars Rover</h3>
+        <div class="rover-btn">
+          <button
+            class="rover-button"
+            mat-stroked-button
+            color="primary"
+            *ngFor="let rover of rovers; let i = index"
+            color="accent"
+            selected
+            [class.active]="i === activeIndex"
+            (click)="onUpdateRover(i)"
+          >
+            {{ rover.title }}
+          </button>
+        </div>
+      </div>
+      <div class="camera">
+        <h3 class="title">Rover Cameras</h3>
+        <mat-form-field class="camera-select" appearance="fill">
+          <mat-label>Select an option</mat-label>
+          <mat-select formControlName="camera">
+            <mat-option [value]="cam.value" *ngFor="let cam of camera">
+              {{ cam.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="sol">
+        <h3 class="title">Marsial Sol</h3>
+        <div>
+          <mat-form-field class="sol-input" appearance="fill">
+            <mat-label>Enter Marsial Sol</mat-label>
+            <input formControlName="sol" matInput min="0" type="number" />
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="filter">
+      <button
+        type="button"
+        mat-raised-button
+        (click)="drawer.toggle()"
+        class="filter-button"
+      >
+        <img src="/assets/sorting-options--v1.png" alt="" class="filter-img" />
+        Filter
+      </button>
+    </div>
+    <div>
+      <app-photo-container
+        class="photo-container"
+        [photo]="data"
+      ></app-photo-container>
+      <div class="button-paginator">
+        <button mat-raised-button (click)="onLoadMore()">Load more</button>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
