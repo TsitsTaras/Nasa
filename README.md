@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## DEMO
 
-Navigate to `https://strong-alfajores-f96639.netlify.app` to see preview
+Navigate to this [link](https://strong-alfajores-f96639.netlify.app) to see preview
 
 ## Development server
 
