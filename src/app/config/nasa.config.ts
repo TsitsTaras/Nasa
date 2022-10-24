@@ -1,4 +1,4 @@
-import { NasaCamera } from '../models/models';
+import { NasaCamera, NasaRovers } from '../models/models';
 
 export const Curiosity: NasaCamera[] = [
   { title: '	Front Hazard Avoidance Camera', value: 'FHAZ' },
@@ -22,4 +22,9 @@ export const Spirit: NasaCamera[] = [
   { title: 'Navigation Camera', value: 'NAVCAM' },
   { title: 'Panoramic Camera', value: 'PANCAM' },
   { title: '	Miniature Thermal Emission Spectrometer ', value: 'MINITES' },
+];
+export const Rovers: NasaRovers[] = [
+  { title: 'Curiosity', value: 'curiosity' },
+  { title: 'Opportunity', value: 'opportunity' },
+  { title: 'Spirit', value: 'spirit' },
 ];

@@ -1,8 +1,19 @@
+export interface PhotosInterface {
+  photos: Photos[];
+}
 export interface Params {
   sol: number;
   camera: string;
   rover: string;
   page: number;
+}
+export interface Photos {
+  id: number;
+  sol: number;
+  camera: PhotosCamera;
+  img_src: string;
+  earth_date: string;
+  rover: PhotosRover;
 }
 export interface PhotosCamera {
   id: number;
@@ -18,17 +29,6 @@ export interface PhotosRover {
   status: string;
 }
 
-export interface Photos {
-  id: number;
-  sol: number;
-  camera: PhotosCamera;
-  img_src: string;
-  earth_date: string;
-  rover: PhotosRover;
-}
-export interface PhotosInterface {
-  photos: Photos[];
-}
 export interface NasaRovers {
   title: string;
   value: string;
