@@ -1,4 +1,4 @@
-export interface NasaImages {
+export interface Params {
   sol: number;
   camera: string;
   rover: string;
