@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## DEMO
 
-Navigate to this [link](https://helpful-bubblegum-165e27.netlify.app) to see preview
+Navigate to this [link](https://frolicking-seahorse-484b62.netlify.app) to see preview
 
 ## Development server
 
