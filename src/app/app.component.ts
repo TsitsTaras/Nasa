@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Curiosity, Opportunity, Spirit } from './config/nasa.config';
-import { NasaCamera, NasaImages, NasaRovers } from './models/models';
+import {
+  NasaCamera,
+  NasaRovers,
+  Photos,
+  PhotosInterface,
+} from './models/models';
 import { HttpService } from './services/http.service';
 @Component({
   selector: 'app-root',
@@ -11,7 +16,7 @@ import { HttpService } from './services/http.service';
 export class AppComponent implements OnInit {
   formGroup!: FormGroup;
   activeRover = 'curiosity';
-  data: NasaImages[] = [];
+  data: Photos[] = [];
   activeIndex: number | null = 0;
   pageNumber: number = 1;
   rovers: NasaRovers[] = [
@@ -23,12 +28,18 @@ export class AppComponent implements OnInit {
   constructor(private service: HttpService) {}
 
   ngOnInit(): void {
+    this.initForm();
+    this.updateImages();
+    this.formChanges();
+  }
+  initForm() {
     this.formGroup = new FormGroup({
       camera: new FormControl('FHAZ'),
       sol: new FormControl(2000),
     });
-    this.updateImages();
-    this.formGroup.valueChanges.subscribe((value) => {
+  }
+  formChanges() {
+    this.formGroup.valueChanges.subscribe(() => {
       this.pageNumber = 1;
       this.updateImages();
     });
@@ -72,7 +83,7 @@ export class AppComponent implements OnInit {
       sol: this.formGroup.value.sol,
       page: this.pageNumber,
     };
-    this.service.getImages(params).subscribe((res: any) => {
+    this.service.getImages(params).subscribe((res: PhotosInterface) => {
       this.data = [...this.data, ...res.photos];
     });
   }
