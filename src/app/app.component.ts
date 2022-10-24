@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
       sol: this.formGroup.value.sol,
       page: 1,
     };
-    this.service.getImages(params).subscribe((res: any) => {
+    this.service.getImages(params).subscribe((res: PhotosInterface) => {
       this.data = res.photos;
     });
   }
